@@ -39,12 +39,16 @@
     .container { width: min(var(--content), calc(100% - 40px)); margin-inline: auto; }
 
     /* Botões: lima sobre fundo escuro, azul-marinho sobre fundo claro */
-    .button { min-height: 56px; display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; border: 0; border-radius: 12px; background: var(--lime); color: var(--navy); font: 800 17px/1.2 var(--font); text-align: center; text-decoration: none; transition: background .15s ease, transform .15s ease; }
-    .button:hover { background: var(--lime-hover); transform: translateY(-1px); }
+    .button { min-height: 62px; display: inline-flex; align-items: center; justify-content: center; gap: 14px; padding: 16px 28px; border: 0; border-radius: 14px; background: var(--lime); color: var(--navy); font: 800 18px/1.2 var(--font); text-align: center; text-decoration: none; box-shadow: 0 12px 30px rgba(220,231,123,.28); transition: background .15s ease, transform .15s ease, box-shadow .15s ease; }
+    .button::after { content: "→"; display: grid; width: 30px; height: 30px; flex: 0 0 30px; place-items: center; border-radius: 50%; background: var(--navy); color: var(--lime); font-size: 16px; transition: transform .15s ease; }
+    .button:hover::after { transform: translateX(3px); }
+    .button:hover { background: var(--lime-hover); box-shadow: 0 16px 36px rgba(220,231,123,.38); transform: translateY(-2px); }
     .button:active { transform: none; }
-    .button-dark { background: var(--navy); color: #fff; }
+    .button-dark { background: var(--navy); color: #fff; box-shadow: 0 12px 26px rgba(16,25,59,.22); }
+    .button-dark::after { background: var(--lime); color: var(--navy); }
     .button-dark:hover { background: var(--navy-2); }
-    .button-small { min-height: 44px; padding: 10px 18px; font-size: 14px; }
+    .button-small { min-height: 44px; padding: 10px 18px; font-size: 14px; box-shadow: none; }
+    .button-small::after { display: none; }
     .link { color: var(--blue-dark); font-weight: 700; text-underline-offset: 4px; }
 
     /* Aviso de transparência no topo */
@@ -66,8 +70,9 @@
     .hero h1 { max-width: 640px; margin-bottom: 18px; font-size: clamp(36px, 4.6vw, 56px); font-weight: 800; line-height: 1.08; letter-spacing: -.035em; }
     .hero-lead { max-width: 560px; margin-bottom: 30px; color: #dbe4f3; font-size: 19px; line-height: 1.6; }
     .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; }
-    .hero-actions .button { min-width: 270px; }
+    .hero-actions .button { min-width: 330px; }
     .hero-actions .link { color: var(--blue); font-size: 15px; }
+    .cta-note { margin-top: 14px; color: #c3cfe4; font-size: 14px; }
     .hero-note { max-width: 560px; margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.16); color: #c3cfe4; font-size: 14px; line-height: 1.6; }
     .hero-note strong { color: #fff; }
 
@@ -83,7 +88,7 @@
     .steps span { display: block; margin-top: 3px; color: var(--muted); font-size: 14px; line-height: 1.55; }
 
     /* Faixa de características */
-    .facts { border-bottom: 1px solid var(--line); background: #fff; }
+    .facts { border-bottom: 1px solid var(--line); background: var(--soft); }
     .facts ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px 24px; margin: 0; padding: 18px 0; list-style: none; }
     .facts li { display: flex; align-items: center; justify-content: center; gap: 10px; color: #33415a; font-size: 14px; font-weight: 600; text-align: center; }
     .facts li::before { content: "✓"; display: grid; width: 22px; height: 22px; flex: 0 0 22px; place-items: center; border-radius: 50%; background: #e8f3d0; color: #4d6a12; font-size: 12px; font-weight: 900; }
@@ -131,7 +136,7 @@
     .closing .container { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
     .closing h2 { max-width: 640px; margin-bottom: 8px; font-size: clamp(28px, 3.2vw, 38px); font-weight: 800; line-height: 1.15; letter-spacing: -.03em; }
     .closing p { max-width: 600px; color: #d1dcec; font-size: 16px; }
-    .closing .button { flex: 0 0 auto; min-width: 270px; }
+    .closing .button { flex: 0 0 auto; min-width: 330px; }
 
     .footer { padding: 42px 0 22px; background: #0b1533; color: #aebbd0; font-size: 14px; line-height: 1.6; }
     .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 34px; }
@@ -173,7 +178,7 @@
       .footer-bottom { flex-direction: column; gap: 4px; }
       .mobile-cta { position: fixed; z-index: 20; inset: auto 0 0 0; display: block; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: rgba(255,255,255,.97); box-shadow: 0 -8px 24px rgba(16,25,59,.12); transition: opacity .18s ease, transform .18s ease; }
       .mobile-cta.is-hidden { opacity: 0; pointer-events: none; transform: translateY(110%); }
-      .mobile-cta .button { width: 100%; }
+      .mobile-cta .button { width: 100%; min-height: 56px; font-size: 17px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -195,7 +200,7 @@
       <div class="nav-right">
         <a class="nav-link" href="#como-avaliar">O que conferir</a>
         <a class="nav-link" href="#duvidas">Dúvidas</a>
-        <a class="button button-small" href="/assessoria" data-cta="nav">Ver escopo e valores</a>
+        <a class="button button-small" href="/assessoria" data-cta="nav">Ver valores</a>
       </div>
     </nav>
   </header>
@@ -207,9 +212,10 @@
           <h1 id="hero-title">Vai abrir um MEI? Veja o que a assessoria da LR inclui e quanto custa.</h1>
           <p class="hero-lead">Confira escopo, valores e condições antes de decidir. Contratar é opcional.</p>
           <div class="hero-actions">
-            <a class="button" href="/assessoria" data-cta="hero">Ver escopo e valores</a>
+            <a class="button" href="/assessoria" data-cta="hero">Ver valores e o que inclui</a>
             <a class="link" href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor" target="_blank" rel="noopener noreferrer" data-cta="portal">Prefiro o Portal do Empreendedor</a>
           </div>
+          <p class="cta-note">Consulta sem compromisso. Contratar é opcional.</p>
           <p class="hero-note"><strong>A LR é uma empresa privada.</strong> Não é órgão público e não tem vínculo com o Governo Federal. Informações e serviços governamentais ficam no canal oficial.</p>
         </div>
 
@@ -249,7 +255,7 @@
               <li>Valores e condições antes de contratar</li>
               <li>Você decide se envia a solicitação</li>
             </ul>
-            <a class="button" href="/assessoria" data-cta="options">Ver escopo e valores</a>
+            <a class="button" href="/assessoria" data-cta="options">Ver valores e o que inclui</a>
           </article>
           <article class="path path-alt">
             <h3>Portal do Empreendedor</h3>
@@ -282,7 +288,7 @@
           </div>
         </div>
         <div class="cta-row">
-          <a class="button button-dark" href="/assessoria" data-cta="evaluate">Ver escopo e valores</a>
+          <a class="button button-dark" href="/assessoria" data-cta="evaluate">Ver valores e o que inclui</a>
         </div>
       </div>
     </section>
@@ -311,7 +317,7 @@
           </details>
         </div>
         <div class="cta-row">
-          <a class="button button-dark" href="/assessoria" data-cta="faq">Ver escopo e valores</a>
+          <a class="button button-dark" href="/assessoria" data-cta="faq">Ver valores e o que inclui</a>
         </div>
       </div>
     </section>
@@ -319,10 +325,10 @@
     <section class="closing" aria-labelledby="closing-title">
       <div class="container">
         <div>
-          <h2 id="closing-title">Confira os detalhes. Depois, decida.</h2>
+          <h2 id="closing-title">Veja o que está incluído e quanto custa. Depois, decida.</h2>
           <p>A página de atendimento reúne escopo, valores e condições. O Portal do Empreendedor segue disponível diretamente.</p>
         </div>
-        <a class="button" href="/assessoria" data-cta="closing">Ver escopo e valores</a>
+        <a class="button" href="/assessoria" data-cta="closing">Ver valores e o que inclui</a>
       </div>
     </section>
   </main>
@@ -341,7 +347,7 @@
       </div>
       <div class="footer-col">
         <h3>Contato e políticas</h3>
-        <a href="/assessoria" data-cta="footer">Ver escopo e valores</a>
+        <a href="/assessoria" data-cta="footer">Ver valores e o que inclui</a>
         <a href="mailto:emailsecunda9928@gmail.com">Enviar e-mail</a>
         <a href="/politicas/politica-privacidade.html">Política de Privacidade</a>
         <a href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor" target="_blank" rel="noopener noreferrer" data-cta="portal-footer">Portal do Empreendedor ↗</a>
@@ -354,7 +360,7 @@
   </footer>
 
   <div class="mobile-cta">
-    <a class="button" href="/assessoria" data-cta="mobile-sticky">Ver escopo e valores</a>
+    <a class="button" href="/assessoria" data-cta="mobile-sticky">Ver valores e o que inclui</a>
   </div>
 
   <script>
