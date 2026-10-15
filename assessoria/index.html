@@ -11,7 +11,7 @@
   <meta property="og:title" content="Consultoria contábil privada para MEI | LR Assessoria">
   <meta property="og:description" content="Entenda a proposta da LR Assessoria e confira escopo e condições antes de decidir.">
   <meta property="og:site_name" content="LR Assessoria">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%2314263f'/%3E%3Ctext x='20' y='26' text-anchor='middle' font-family='Arial' font-size='15' font-weight='700' fill='%23d8e2b0'%3ELR%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%2310193b'/%3E%3Ctext x='20' y='26' text-anchor='middle' font-family='Arial' font-size='15' font-weight='700' fill='%23e3ef59'%3ELR%3C/text%3E%3C/svg%3E" type="image/svg+xml">
   <title>Consultoria contábil privada para MEI | LR Assessoria</title>
   <style>
     :root {
@@ -43,9 +43,9 @@
       -webkit-font-smoothing: antialiased;
     }
     a { color: inherit; }
-    a:focus-visible, summary:focus-visible { outline: 3px solid #8fae70; outline-offset: 4px; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid var(--lime); outline-offset: 4px; box-shadow: 0 0 0 2px var(--navy); }
     .container { width: min(var(--content), calc(100% - 40px)); margin-inline: auto; }
-    .eyebrow { margin: 0; color: var(--blue); font-size: 12px; font-weight: 850; letter-spacing: .09em; text-transform: uppercase; }
+    .eyebrow { margin: 0; color: var(--blue-dark); font-size: 12px; font-weight: 850; letter-spacing: .09em; text-transform: uppercase; }
     h1, h2, h3, p { overflow-wrap: anywhere; }
 
     .topline { background: var(--navy); color: #f5f7ff; font-size: 13px; }
@@ -123,7 +123,7 @@
     .proof-row { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #fff; }
     .proof-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; padding: 17px 0; }
     .proof-item { display: flex; align-items: center; justify-content: center; gap: 10px; color: #3f4c68; font-size: 14px; font-weight: 700; text-align: center; }
-    .proof-icon { display: grid; width: 27px; height: 27px; flex: 0 0 27px; place-items: center; border-radius: 9px; background: var(--blue-soft); color: var(--blue); font-size: 13px; font-weight: 900; }
+    .proof-icon { display: grid; width: 27px; height: 27px; flex: 0 0 27px; place-items: center; border-radius: 9px; background: var(--blue-soft); color: var(--blue-dark); font-size: 13px; font-weight: 900; }
 
     .section { padding: 75px 0; }
     .section-soft { background: var(--canvas); }
@@ -154,7 +154,7 @@
     .decision h3 { margin: 12px 0 7px; color: var(--navy); font-size: 18px; line-height: 1.35; }
     .decision p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
     .disclosure { display: grid; grid-template-columns: 34px 1fr; gap: 13px; margin-top: 21px; padding: 16px; border: 1px solid #d5e1e3; border-radius: 14px; background: #fff; }
-    .disclosure-icon { display: grid; width: 30px; height: 30px; place-items: center; border-radius: 50%; background: var(--blue-soft); color: var(--blue); font-weight: 900; }
+    .disclosure-icon { display: grid; width: 30px; height: 30px; place-items: center; border-radius: 50%; background: var(--blue-soft); color: var(--blue-dark); font-weight: 900; }
     .disclosure strong { color: var(--navy); font-size: 15px; }
     .disclosure p { margin: 3px 0 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
 
@@ -162,18 +162,20 @@
     .faq details { padding: 17px 3px; border-bottom: 1px solid var(--line); }
     .faq summary { position: relative; padding: 4px 38px 4px 0; color: var(--navy); font-size: 16px; font-weight: 750; line-height: 1.45; cursor: pointer; list-style: none; }
     .faq summary::-webkit-details-marker { display: none; }
-    .faq summary::after { content: "+"; position: absolute; top: -3px; right: 5px; color: var(--blue); font-size: 23px; font-weight: 500; }
+    .faq summary::after { content: "+"; position: absolute; top: -3px; right: 5px; color: var(--blue-dark); font-size: 23px; font-weight: 500; }
     .faq details[open] summary::after { content: "−"; }
     .faq details p { max-width: 730px; margin: 9px 0 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .content-cta { display: flex; justify-content: center; margin: 30px auto 0; }
+    .content-cta .button { min-width: 300px; }
 
-    .closing { padding: 53px 0; background: linear-gradient(125deg,#14263f,#1b3852); color: #fff; }
+    .closing { padding: 53px 0; background: linear-gradient(125deg,var(--navy),var(--navy-2)); color: #fff; }
     .closing-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
-    .closing .eyebrow { color: #d8e2b0; }
+    .closing .eyebrow { color: #8cdef0; }
     .closing h2 { max-width: 680px; margin: 9px 0 9px; color: #fff; font: 750 clamp(31px,3.5vw,40px)/1.15 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: -.035em; }
     .closing p:not(.eyebrow) { max-width: 620px; margin: 0; color: #d1dcec; font-size: 15px; line-height: 1.6; }
     .closing .button { flex: 0 0 auto; }
 
-    .footer { padding: 39px 0 22px; background: #0b1727; color: #b9c6de; }
+    .footer { padding: 39px 0 22px; background: #0b1533; color: #b9c6de; }
     .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr .8fr; gap: 34px; }
     .footer-brand { color: #fff; }
     .footer p { max-width: 390px; margin: 12px 0 0; color: #aebbd0; font-size: 14px; line-height: 1.6; }
@@ -219,6 +221,7 @@
       .decision { min-height: auto; padding: 19px; }
       .closing { padding: 43px 0; }
       .closing .button { width: 100%; }
+      .content-cta .button { width: 100%; min-width: 0; }
       .footer-grid { grid-template-columns: 1fr; gap: 23px; }
       .footer-grid > div:first-child { grid-column: auto; }
       .footer-bottom { flex-direction: column; gap: 5px; }
